@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Project Management</title>
+  </head>
+
+
+  <body>
+    <main>
+         <%- include('./layouts/navbar'); %>  
+
+      <section class="flex justify-center w-full mt-20 mb-16 gap-3">
+        <div class="container max-w-5xl">
+          <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+
+          <div class="grid grid-cols-2 gap-5">
+          <div
+          class="max-w-2xl group cursor-pointer px-8 pb-2 mx-auto bg-white rounded-lg shadow-md hover:shadow-lg duration-300"
+        >
+
+          <div class="mb-4">
+
+            <p class="mt-2 text-gray-600">
+              <%= data[i].note %>
+            </p>
+          </div>
+
+          <div class=" flex items-center justify-end gap-5 mb-2">
+
+            <div>
+              <span
+                class="text-sm font-bold text-gray-600 duration-300 group-hover:text-red-600"
+                >Active Date:</span
+              >
+              <span
+                class="text-sm font-light text-gray-600"
+                ><%= data[i].active_date %></span
+              >
+            </div>
+          </div>
+        </div>
+
+          </div>
+          <% } }else{ %>
+
+            <div>No Notes</div>
+  
+            <% } %>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
