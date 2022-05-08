@@ -133,7 +133,7 @@ router.delete("/delete/:id", (req, res) => {
 
 // function error(response, message = "error", status = 500, data = []) {
 //   response.send({ status, message, data });
-// }
+// } 
 
 
 

@@ -12,10 +12,10 @@
       <%- include('./layouts/navbar'); %>
 
       <section class="flex justify-center w-full mt-20 mb-16 gap-3">
-        <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
-
         <div class="container max-w-5xl">
           <div class="grid grid-cols-2 gap-5">
+            <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+
             <div
               class="group max-w-2xl cursor-pointer px-8 pb-2 mx-auto bg-white rounded-lg shadow-md hover:shadow-lg duration-300"
             >
@@ -25,8 +25,9 @@
                     class="text-sm font-bold text-gray-600 duration-300 group-hover:text-blue-600"
                     >Start Date:</span
                   >
-                  <span class="text-sm font-light text-gray-600"
-                    ><%= data[i].start_dt %></span
+                  <span class="text-sm font-light text-gray-600">
+                    <%= new
+                    Date(data[i].project_start_dt).toDateString('fr-CA')%></span
                   >
                 </div>
                 <div>
@@ -34,8 +35,9 @@
                     class="text-sm font-bold text-gray-600 duration-300 group-hover:text-red-600"
                     >Due Date:</span
                   >
-                  <span class="text-sm font-light text-gray-600"
-                    ><%= data[i].due_dt %></span
+                  <span class="text-sm font-light text-gray-600">
+                    <%= new
+                    Date(data[i].project_due_dt).toDateString('fr-CA')%></span
                   >
                 </div>
               </div>
@@ -50,15 +52,54 @@
                   <%= data[i].project_description %>
                 </p>
               </div>
+
+              <div class="flex justify-between items-center">
+                <div class="bg-violet-600 rounded-sm px-3 pb-1 border">
+                  <a href="/notes" class="text-white font-semibold text-xs">
+                    Notes
+                  </a>
+                </div>
+
+                <div class="flex justify-between w-12">
+                  <svg
+                    class="text-blue-600"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                  >
+                    <g id="_01_align_center" data-name="01 align center">
+                      <path
+                        fill="#374957"
+                        d="M22.94,1.06a3.626,3.626,0,0,0-5.124,0L0,18.876V24H5.124L22.94,6.184A3.627,3.627,0,0,0,22.94,1.06ZM4.3,22H2V19.7L15.31,6.4l2.3,2.3ZM21.526,4.77,19.019,7.277l-2.295-2.3L19.23,2.474a1.624,1.624,0,0,1,2.3,2.3Z"
+                      />
+                    </g>
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                  >
+                    <g id="_01_align_center" data-name="01 align center">
+                      <path
+                        fill="#374957"
+                        d="M22,4H17V2a2,2,0,0,0-2-2H9A2,2,0,0,0,7,2V4H2V6H4V21a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V6h2ZM9,2h6V4H9Zm9,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V6H18Z"
+                      />
+                      <rect x="9" y="10" width="2" height="8" />
+                      <rect x="13" y="10" width="2" height="8" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
             </div>
+            <% } }else{ %>
+
+            <div>No Projects</div>
+
+            <% } %>
           </div>
-         
         </div>
-        <% } }else{ %>
-
-          <div>No Projects</div>
-
-          <% } %>
       </section>
     </main>
   </body>
