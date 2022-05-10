@@ -8,8 +8,11 @@
     <title>Project Management</title>
   </head>
   <body>
+
+    
     <main>
       <%- include('./layouts/navbar'); %>
+      
 
       <section class="flex justify-center w-full mt-20 mb-16 gap-3">
         <div class="container max-w-5xl">
@@ -19,6 +22,8 @@
             <div
               class="group max-w-2xl cursor-pointer px-8 pb-2 mx-auto bg-white rounded-lg shadow-md hover:shadow-lg duration-300"
             >
+        
+
               <div class="flex items-center justify-end gap-5 mb-2">
                 <div>
                   <span
@@ -59,37 +64,53 @@
                     Notes
                   </a>
                 </div>
+                <div class="flex justify-between w-20">
+                  <button onclick="showAddNotes()" class="hover:text-yellow-500 text-gray-500">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6C6 5.44772 6.44772 5 7 5H17C17.5523 5 18 5.44772 18 6C18 6.55228 17.5523 7 17 7H7C6.44771 7 6 6.55228 6 6Z" fill="currentColor" /><path d="M6 10C6 9.44771 6.44772 9 7 9H17C17.5523 9 18 9.44771 18 10C18 10.5523 17.5523 11 17 11H7C6.44771 11 6 10.5523 6 10Z" fill="currentColor" /><path d="M7 13C6.44772 13 6 13.4477 6 14C6 14.5523 6.44771 15 7 15H17C17.5523 15 18 14.5523 18 14C18 13.4477 17.5523 13 17 13H7Z" fill="currentColor" /><path d="M6 18C6 17.4477 6.44772 17 7 17H11C11.5523 17 12 17.4477 12 18C12 18.5523 11.5523 19 11 19H7C6.44772 19 6 18.5523 6 18Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4C2 2.34315 3.34315 1 5 1H19C20.6569 1 22 2.34315 22 4V20C22 21.6569 20.6569 23 19 23H5C3.34315 23 2 21.6569 2 20V4ZM5 3H19C19.5523 3 20 3.44771 20 4V20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V4C4 3.44772 4.44771 3 5 3Z" fill="currentColor" /></svg>
+                  </button>
+                  
+                  <a class="hover:text-yellow-500 text-gray-500" href="/projects/update/<%= data[i].id %>">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M21.2635 2.29289C20.873 1.90237 20.2398 1.90237 19.8493 2.29289L18.9769 3.16525C17.8618 2.63254 16.4857 2.82801 15.5621 3.75165L4.95549 14.3582L10.6123 20.0151L21.2189 9.4085C22.1426 8.48486 22.338 7.1088 21.8053 5.99367L22.6777 5.12132C23.0682 4.7308 23.0682 4.09763 22.6777 3.70711L21.2635 2.29289ZM16.9955 10.8035L10.6123 17.1867L7.78392 14.3582L14.1671 7.9751L16.9955 10.8035ZM18.8138 8.98525L19.8047 7.99429C20.1953 7.60376 20.1953 6.9706 19.8047 6.58007L18.3905 5.16586C18 4.77534 17.3668 4.77534 16.9763 5.16586L15.9853 6.15683L18.8138 8.98525Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M2 22.9502L4.12171 15.1717L9.77817 20.8289L2 22.9502Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </a>
 
-                <div class="flex justify-between w-12">
-                  <svg
-                    class="text-blue-600"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="15"
-                    height="15"
+                  <a
+                    href="/projects/delete/<%= data[i].id %>"
+                    class="hover:text-red-500 text-gray-500"
                   >
-                    <g id="_01_align_center" data-name="01 align center">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
-                        fill="#374957"
-                        d="M22.94,1.06a3.626,3.626,0,0,0-5.124,0L0,18.876V24H5.124L22.94,6.184A3.627,3.627,0,0,0,22.94,1.06ZM4.3,22H2V19.7L15.31,6.4l2.3,2.3ZM21.526,4.77,19.019,7.277l-2.295-2.3L19.23,2.474a1.624,1.624,0,0,1,2.3,2.3Z"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M17 5V4C17 2.89543 16.1046 2 15 2H9C7.89543 2 7 2.89543 7 4V5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H5V18C5 19.6569 6.34315 21 8 21H16C17.6569 21 19 19.6569 19 18V7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H17ZM15 4H9V5H15V4ZM17 7H7V18C7 18.5523 7.44772 19 8 19H16C16.5523 19 17 18.5523 17 18V7Z"
+                        fill="currentColor"
                       />
-                    </g>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="15"
-                    height="15"
-                  >
-                    <g id="_01_align_center" data-name="01 align center">
-                      <path
-                        fill="#374957"
-                        d="M22,4H17V2a2,2,0,0,0-2-2H9A2,2,0,0,0,7,2V4H2V6H4V21a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V6h2ZM9,2h6V4H9Zm9,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V6H18Z"
-                      />
-                      <rect x="9" y="10" width="2" height="8" />
-                      <rect x="13" y="10" width="2" height="8" />
-                    </g>
-                  </svg>
+                      <path d="M9 9H11V17H9V9Z" fill="currentColor" />
+                      <path d="M13 9H15V17H13V9Z" fill="currentColor" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -100,8 +121,60 @@
             <% } %>
           </div>
         </div>
+        
       </section>
     </main>
+
+            
+<div id="addNotes" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+  
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+  
+    <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+      <div>
+          
+      
+      <form action="/notes/add" method="POST">
+          <div>
+
+              <div class="mb-5">
+                  <label class="text-gray-700 text-sm" for="note">Note</label>
+                  <textarea cols="30" rows="10" id="note" name="note" class="resize-none block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"></textarea>
+              </div>
+
+
+              <div>
+                  <label class="text-gray-700 text-sm" for="active_date">Date</label>
+                  <input id="active_date" name="active_date" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
+              </div>
+    
+
+          </div>
+
+          <div class="flex justify-end mt-6">
+              <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+    <script>
+      const showAddNotes = () => {
+        var modal = document.getElementById("addNotes");
+        if (modal.style.display === "none") {
+          modal.style.display = "block";
+        } else {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+
   </body>
 </html>
 <script>
